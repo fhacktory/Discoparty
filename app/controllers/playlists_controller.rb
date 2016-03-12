@@ -1,4 +1,6 @@
 class PlaylistsController < ApplicationController
+  before_action :set_cookie
+
   def create
     @playlist = Playlist.new(playlist_params)
 

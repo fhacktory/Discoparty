@@ -30,7 +30,6 @@ span {
   margin: 0 0 modular-scale(0) 0;
   width: 100%;
 
-  .username-field,
   .playlist-name-field {
     width: 250px;
   }
@@ -38,10 +37,6 @@ span {
 
 .input {
   margin-top: 0;
-}
-
-.username-field {
-  margin-right: modular-scale(1);
 }
 
 .submit-button-container {
