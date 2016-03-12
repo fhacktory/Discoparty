@@ -9,7 +9,7 @@ class DeezerApi
         provider_track_id: track['id'],
         duration: track['duration'],
         artist: track['artist']['name'],
-        picture_url: track['album']['cover_small']
+        image_url: track['album']['cover_small']
       }
     end
   end

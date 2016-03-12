@@ -7,7 +7,7 @@ class SoundcloudApi
         provider_track_id: track['id'],
         duration: track['duration'],
         artist: track['user']['username'],
-        picture_url: track['artwork_url']
+        image_url: track['artwork_url']
       }
     end
   end
