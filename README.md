@@ -19,3 +19,6 @@ you can deploy to staging and production with:
 
     $ ./bin/deploy staging
     $ ./bin/deploy production
+
+## Mobile application
+[Git repository]: https://github.com/gouz/discoparty-app
