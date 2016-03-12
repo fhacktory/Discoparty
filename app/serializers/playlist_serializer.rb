@@ -11,8 +11,8 @@ class PlaylistSerializer < ActiveModel::Serializer
         artist: track.artist,
         image_url: track.image_url,
         score: track.score,
-        love: track.loved?(scope),
-        hate: track.hated?(scope)
+        loved: track.love_for(scope).present?,
+        hated: track.hate_for(scope).present?
       }
     end.sort_by { |track| track[:score] }
   end

@@ -1,9 +1,10 @@
 module Api
   module V1
     class LovesController < ::ApplicationController
+      before_action :set_track
+
       def create
-        track = Track.find(params[:track_id])
-        if Vote.create(love_params.merge(track: track))
+        if Vote.create(love_params.merge(track: @track))
           render status: :created
         else
           render status: :bad_request
@@ -11,8 +12,8 @@ module Api
       end
 
       def destroy
-        vote = Vote.find(params[:id])
-        if vote.destroy
+        love = @track.love_for(current_user)
+        if love.destroy
           render status: :ok
         else
           render status: :bad_request
@@ -20,6 +21,10 @@ module Api
       end
 
       private
+
+      def set_track
+        @track = Track.find(params[:track_id])
+      end
 
       def love_params
         {

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
       resource :search, only: :show
       resources :playlists, only: :show do
         resources :tracks, only: :create do
-          resources :loves, only: [:create, :destroy]
-          resources :hates, only: [:create, :destroy]
+          resource :loves, only: [:create, :destroy]
+          resource :hates, only: [:create, :destroy]
         end
       end
     end

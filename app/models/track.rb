@@ -17,11 +17,11 @@ class Track < ActiveRecord::Base
     loves.count - hates.count
   end
 
-  def loved?(user)
-    loves.where(user: user).present?
+  def love_for(user)
+    loves.where(user: user)
   end
 
-  def hated?(user)
-    hates.where(user: user).present?
+  def hate_for(user)
+    hates.where(user: user)
   end
 end
