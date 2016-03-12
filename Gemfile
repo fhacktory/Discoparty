@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
+gem 'active_model_serializers'
 gem 'autoprefixer-rails'
 gem 'bourbon', '~> 4.2.0'
 gem 'delayed_job_active_record'
