@@ -4,7 +4,7 @@ module Api
       def show
         if params[:q].present?
           tracks = DeezerApi.search(params[:q]) + SoundcloudApi.search(params[:q]) + YoutubeApi.search(params[:q])
-          render json: tracks
+          render json: tracks, root: false
         end
       end
     end
