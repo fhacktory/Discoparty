@@ -1,0 +1,10 @@
+ruby:
+  enabled: true
+  config_file: config/linters/ruby.yml
+
+java_script:
+  enabled: true
+  config_file: config/linters/javascript.json
+
+scss:
+  enabled: true

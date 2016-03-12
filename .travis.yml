@@ -1,0 +1,22 @@
+language: ruby
+rvm: 2.3.0
+
+sudo: false
+
+addons:
+  postgresql: '9.4'
+
+cache: bundler
+
+before_install:
+  - "echo 'gem: --no-document' > ~/.gemrc"
+  - "echo '--colour' > ~/.rspec"
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+before_script:
+  - cp .sample.env .env
+  - bin/rake db:create db:schema:load RAILS_ENV=test
+
+notifications:
+  email: false
