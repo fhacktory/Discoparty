@@ -4,9 +4,9 @@ $(document).ready ->
   $(document).on 'click', '.search_results', ->
     playlist_id = $('#searchbox').data('playlistId')
     $.ajax
-      url: "/playlists/#{playlist_id}/tracks"
+      url: "/api/v1/playlists/#{playlist_id}/tracks"
       method: 'POST'
-      data: $(@).data()
+      data: { track: $(@).data() }
 
   ajax_request = null
 
@@ -30,7 +30,7 @@ $(document).ready ->
               data-provider_track_id="#{i.provider_track_id}"
               data-duration="#{i.duration}"
               data-artist="#{i.artist}"
-              data-picture_url="#{i.picture_url}"
+              data-image_url="#{i.image_url}"
             >
               #{i.artist} - #{i.title}
             </a>

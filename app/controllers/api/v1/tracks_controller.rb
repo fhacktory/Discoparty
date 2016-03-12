@@ -22,8 +22,8 @@ module Api
             :provider,
             :provider_track_id,
             :duration,
-            :image_url,
-            :artist
+            :artist,
+            :image_url
           )
       end
     end
