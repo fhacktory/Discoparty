@@ -8,10 +8,15 @@ $(document).ready ->
       method: 'POST'
       data: { track: $(@).data() }
 
+  $(document).on 'click', ->
+    $('#search_results').remove()
+
   ajax_request = null
 
   $('#searchbox').on 'keyup', ->
-    if $(@).val().length >= 3
+    $this = $(@)
+    if $this.val().length >= 3
+      $this.addClass 'loading'
       if ajax_request?
         ajax_request.abort()
       ajax_request = $.ajax
@@ -23,6 +28,10 @@ $(document).ready ->
         success: (json) ->
           html = ''
           for i in json
+            if i.artist?
+              concat = "#{i.artist}<br />#{i.title}"
+            else
+              concat = "#{i.title}"
             html += """
             <a class="search_results" href="#"
               data-title="#{i.title}"
@@ -31,9 +40,17 @@ $(document).ready ->
               data-duration="#{i.duration}"
               data-artist="#{i.artist}"
               data-image_url="#{i.image_url}"
+              title="#{i.artist} - #{i.title}"
             >
-              #{i.artist} - #{i.title}
+              <img src="#{i.image_url}" class="cover" />
+              <span>#{concat}</span>
             </a>
             """
           $("body").append '<div id="search_results" />'
-          $('#search_results').html html
+          $('#search_results').css(
+            top: $this.offset().top + $this.outerHeight()
+            left: $this.offset().left
+            width: $this.outerWidth()
+            'max-width': $this.outerWidth()
+          ).html html
+          $this.removeClass 'loading'

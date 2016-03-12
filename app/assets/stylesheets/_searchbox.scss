@@ -1,0 +1,38 @@
+#search_results {
+  position: absolute;
+  z-index: 2;
+
+  border: 1px solid $orange;
+  background: $white;
+
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  a {
+    display: block;
+    height: 52px;
+    color: $pink;
+    border-bottom: 1px solid lighten($orange, 20);
+    font-size: .8em;
+    white-space: nowrap;
+    hyphens: auto;
+    max-width: 100%;
+
+    span {
+      color: $orange;
+    }
+
+    img {
+      float:left;
+      margin: 2px 5px 2px 2px;
+      height: 48px;
+    }
+
+    &:hover {
+      background-color: lighten($orange, 40);
+    }
+  }
+
+
+}
