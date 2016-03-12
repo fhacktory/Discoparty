@@ -21,8 +21,10 @@
   </head>
 
   <body>
-    <%= render 'flashes' -%>
-    <%= yield %>
-    <%= render 'javascript' %>
+    <div class="outer-container">
+      <%= render 'flashes' -%>
+      <%= yield %>
+      <%= render 'javascript' %>
+    </div>
   </body>
 </html>
