@@ -22,3 +22,5 @@ you can deploy to staging and production with:
 
 ## Mobile application
 [Git repository]: https://github.com/gouz/discoparty-app
+
+See : [Git repository]
