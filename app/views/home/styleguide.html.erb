@@ -1,0 +1,137 @@
+<div id="styleguide">
+  <h1 id="main">About</h1>
+  <p>This is a Living Style Guide where some UI components and patterns are extracted. Beyond its use in consolidating the front-end code, it also documents the visual language, such as typography, grid and colors.</p>
+  <hr>
+  <h1 id="colors">Colors</h1>
+
+  <div class="color-tiles">
+    <% 5.times do |i| %>
+    <figure class="color-tile <%= "color-#{i + 1}" %>">
+      <figcaption></figcaption>
+    </figure>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <h1 id="headings">Headings</h1>
+
+  <h1>h1. Heading</h1>
+  <h2>h2. Heading</h2>
+  <h3>h3. Heading</h3>
+  <h4>h4. Heading</h4>
+  <h5>h5. Heading</h5>
+  <h6>h6. Heading</h6>
+
+  <hr>
+
+  <h1 id="paragraph">Paragraph</h1>
+
+  <p>Lorem ipsum dolor sit amet, <a href="#" title="test link">test link</a> adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+
+  <p>Lorem ipsum dolor sit amet, <em>emphasis</em> consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+
+  <hr>
+
+  <h1 id="list_types">List Types</h1>
+
+  <h3>Definition List</h3>
+  <dl>
+    <dt>Definition List Title</dt>
+    <dd>This is a definition list division.</dd>
+  </dl>
+
+  <br>
+
+  <h3>Ordered List</h3>
+  <ol>
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+  </ol>
+
+  <br>
+
+  <h3>Unordered List</h3>
+  <ul>
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+  </ul>
+
+  <br>
+
+  <h3>List with chips</h3>
+  <ul class="with-chips">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+  </ul>
+
+  <hr>
+
+  <h1 id="buttons">Buttons</h1>
+
+  <button>Primary Button</button>
+  <button class="button hollow">Hollow button</button>
+
+  <hr>
+
+  <h1 id="form_elements">Fieldsets and Form Elements</h1>
+
+  <fieldset>
+    <%= simple_form_for '' do |f| %>
+      <h3>Form Title</h3>
+
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+
+      <%= f.input :text %>
+
+      <%= f.input :input_with_hint, hint: 'A hint text goes here.' %>
+
+      <div class="field-with-errors">
+        <label for="text_field">Input with error</label>
+        <input type="text" id="text_field" />
+        <p class="error">Error message goes here</p>
+      </div>
+
+      <%= f.input :text_area, as: :text %>
+
+      <%= f.input :select, collection: 18..60 %>
+
+      <%= f.input :radio_buttons, as: :radio_buttons %>
+      <%= f.input :check_boxes, as: :check_boxes %>
+
+      <%= f.input :password, as: :password %>
+      <%= f.input :file_input, as: :file %>
+
+      <%= f.button :submit, 'Submit' %>
+    <% end %>
+  </fieldset>
+
+  <hr>
+
+  <h1 id="tables">Tables</h1>
+  <table>
+    <thead>
+      <th>Column title</th>
+      <th>Another column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+      <th>Column title</th>
+    </thead>
+    <tbody>
+      <% 20.times do %>
+      <tr>
+        <td>A cell content</td>
+        <td>A cell content</td>
+        <td>A longer cell content</td>
+        <td>A much longer cell content</td>
+        <td>A cell content</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <hr>
+</div>

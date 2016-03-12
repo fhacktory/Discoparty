@@ -1,6 +1,17 @@
-Welcome to discoparty !
-
-<%= simple_form_for(@playlist) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit %>
-<% end %>
+<div class="main-wrapper">
+  <div class="logo-container">
+    <img alt="logo" src="http://placehold.it/150x150">
+  </div>
+  <div class="text-container">
+    <h3>Welcome on Disco Party, a collaborative playlist tool</h3>
+    <h6>Enter your <span>username</span> and your <span>playlist name</span>, and let's get the party started.</h6>
+  </div>
+    <%= simple_form_for(@playlist) do |f| %>
+      <div class="input-container">
+        <input alt="text" class="username-field" name="username" placeholder="username" type="text">
+        <%= f.input :name, placeholder: 'Playlist name', label: false, input_html: { class: 'playlist-name-field' } %>
+      </div>
+      <%= f.submit "Let's dance!" %>
+    <% end %>
+  </div>
+</div>

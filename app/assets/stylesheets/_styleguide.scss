@@ -1,0 +1,64 @@
+
+$styleguide-color-1: $base-background-color;
+$styleguide-color-2: $white;
+$styleguide-color-3: $orange;
+$styleguide-color-4: $pink;
+$styleguide-color-5: $green;
+
+$colors: $styleguide-color-1, $styleguide-color-2, $styleguide-color-3, $styleguide-color-4, $styleguide-color-5;
+
+#styleguide {
+  @include outer-container;
+  padding: 2em $gutter;
+
+  h1[id] {
+    margin-bottom: 0.5em;
+  }
+
+  .color-tiles {
+    @include clearfix;
+  }
+
+  .color-tile {
+    border: 1px solid $base-border-color;
+    cursor: pointer;
+    float: left;
+    height: 8em;
+    margin: 0 1.5em 1em 0;
+    overflow: hidden;
+    position: relative;
+    width: 8em;
+
+    figcaption {
+      bottom: -8em;
+      color: #fff;
+      display: block;
+      font-weight: bold;
+      height: 8em;
+      padding: 1em 1.5em;
+      position: absolute;
+      text-align: center;
+      transition: all, 0.2s ease-in-out;
+      width: 8em;
+    }
+
+    &:hover {
+
+      figcaption {
+        transform: translateY(-100%);
+      }
+    }
+  }
+
+  @each $color in $colors {
+    $i: index($colors, $color);
+
+    .color-tile.color-#{$i} {
+      background-color: $color;
+
+      figcaption {
+        color: if(lightness($color) > 70%, #333, #fff);
+      }
+    }
+  }
+}

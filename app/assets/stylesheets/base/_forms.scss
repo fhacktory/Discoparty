@@ -27,22 +27,24 @@ textarea {
 
 #{$all-text-inputs},
 select[multiple] {
-  background-color: $base-background-color;
+  background-color: $white;
   border: $base-border;
+  border-color: $action-color;
   border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
   box-sizing: border-box;
+  color: $pink;
   margin-bottom: $small-spacing;
   padding: $base-spacing / 3;
   transition: border-color $base-duration $base-timing;
   width: 100%;
 
   &:hover {
-    border-color: shade($base-border-color, 20%);
+    border-color: $orange;
   }
 
   &:focus {
-    border-color: $action-color;
+    border-color: $orange;
     box-shadow: $form-box-shadow-focus;
     outline: none;
   }
@@ -52,7 +54,7 @@ select[multiple] {
     cursor: not-allowed;
 
     &:hover {
-      border: $base-border;
+      border: $orange;
     }
   }
 }

@@ -1,0 +1,49 @@
+* + * {
+  margin-top: modular-scale(1);
+}
+
+.main-wrapper {
+  @include outer-container;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.submit-button {
+  margin-top: modular-scale(0);
+}
+
+.logo-container {
+  margin-top: modular-scale(3);
+}
+
+span {
+  color: $orange;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 modular-scale(0) 0;
+  width: 100%;
+
+  .username-field,
+  .playlist-name-field {
+    width: 250px;
+  }
+}
+
+.input {
+  margin-top: 0;
+}
+
+.username-field {
+  margin-right: modular-scale(1);
+}
+
+.submit-button-container {
+  margin-top: modular-scale(-1);
+}
