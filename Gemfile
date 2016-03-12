@@ -24,6 +24,7 @@ gem 'simple_form'
 gem 'soundcloud'
 gem 'turbolinks'
 gem 'uglifier'
+gem 'rqrcode'
 
 group :development do
   gem 'foreman'

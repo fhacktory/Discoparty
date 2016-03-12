@@ -3,6 +3,10 @@
   <h3><%= @playlist.name %></h3>
 </div>
 
+<div id="code">
+  <%= raw @qr.as_html %>
+</div>
+
 <div class="inner-wrapper">
   <div class="player-container">
     <div class="player">

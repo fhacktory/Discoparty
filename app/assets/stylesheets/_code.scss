@@ -1,0 +1,26 @@
+#code {
+  background-image: image-url("mask.png");
+  width: 109px;
+  height: 184px;
+  position: relative;
+
+  table {
+    border-width: 0;
+    border-style: none;
+    border-collapse: collapse;
+    width: auto;
+    position: absolute;
+    left: 27px;
+    top: 135px;
+
+    td {
+      padding: 0;
+      margin: 0;
+      width: 1px;
+      height: 1px;
+
+      &.black { border-color: #000; }
+      &.white { border-color: #333; }
+    }
+  }
+}
