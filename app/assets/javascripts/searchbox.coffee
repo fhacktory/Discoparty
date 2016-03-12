@@ -2,8 +2,9 @@ $ = window.jQuery
 
 $(document).ready ->
   $(document).on 'click', '.search_results', ->
+    playlist_id = $('#searchbox').data('playlistId')
     $.ajax
-      url: '/playlists/' + playlist_id + '/tracks'
+      url: "/playlists/#{playlist_id}/tracks"
       method: 'POST'
       data: $(@).data()
 
