@@ -2,7 +2,7 @@ class PlaylistsController < ApplicationController
   before_action :set_cookie
 
   def create
-    @playlist = Playlist.new(playlist_params)
+    @playlist = Playlist.find_or_create_by(playlist_params)
 
     if @playlist.save
       redirect_to @playlist
