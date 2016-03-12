@@ -6,8 +6,6 @@ class CreateTracks < ActiveRecord::Migration
       t.boolean :played, default: false
       t.string :provider, null: false
       t.string :provider_track_id, null: false
-      t.integer :upvote, default: 0
-      t.integer :downvote, default: 0
       t.references :playlist, null: false
 
       t.timestamps null: false

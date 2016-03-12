@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312134540) do
+ActiveRecord::Schema.define(version: 20160312141916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,23 @@ ActiveRecord::Schema.define(version: 20160312134540) do
     t.boolean  "played",            default: false
     t.string   "provider",                          null: false
     t.string   "provider_track_id",                 null: false
-    t.integer  "upvote",            default: 0
-    t.integer  "downvote",          default: 0
     t.integer  "playlist_id",                       null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "vote_type",  null: false
+    t.integer  "track_id",   null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
