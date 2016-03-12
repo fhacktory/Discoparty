@@ -19,6 +19,7 @@ gem 'recipient_interceptor'
 gem 'rest-client'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
+gem 'soundcloud'
 gem 'turbolinks'
 gem 'uglifier'
 
