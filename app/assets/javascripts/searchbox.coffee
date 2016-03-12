@@ -8,9 +8,13 @@ $(document).ready ->
       method: 'POST'
       data: $(@).data()
 
+  ajax_request = null
+
   $('#searchbox').on 'keyup', ->
     if $(@).val().length >= 3
-      $.ajax
+      if ajax_request?
+        ajax_request.abort()
+      ajax_request = $.ajax
         url : '/api/v1/search'
         method: 'GET'
         data :
