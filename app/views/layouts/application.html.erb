@@ -20,7 +20,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body class="<%= body_class %>">
     <div class="outer-container">
       <%= render 'flashes' -%>
       <%= yield %>
