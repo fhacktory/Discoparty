@@ -3,7 +3,7 @@ $ = window.jQuery
 $(document).ready ->
   $(document).on 'click', '.search_results', ->
     $.ajax
-      url: '/playlists/' + playlist_id
+      url: '/playlists/' + playlist_id + '/tracks'
       method: 'POST'
       data: $(@).data()
 
