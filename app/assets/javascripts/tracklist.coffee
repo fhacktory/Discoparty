@@ -16,7 +16,7 @@ list = [
     artist: 'Giorgio Moroder'
     title: '74 Is The New 24'
     provider: 'soundcloud'
-    provider_id: '177337182'
+    track_id: '177337182'
     duration: 20000
   }
   {
@@ -50,9 +50,8 @@ next = =>
         events:
           'onReady': onPlayerReady
           'onStateChange': onPlayerStateChange
-
     else
-      $ww.innerHTML = '<iframe src="' + iframeTpls[track.provider].replace('%1', track.provider_id) + '"></iframe>'
+      $ww.innerHTML = '<iframe src="' + iframeTpls[track.provider].replace('%1', track.track_id) + '"></iframe>'
       setTimeout ->
         next()
       , track.duration
@@ -62,7 +61,6 @@ onPlayerReady = (event) ->
   event.target.playVideo()
 
 onPlayerStateChange = (event) ->
-  console.log event.data + ' : ' + YT.PlayerState.ENDED
   if event.data is YT.PlayerState.ENDED
     next()
 
