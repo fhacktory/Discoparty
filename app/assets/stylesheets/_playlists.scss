@@ -37,6 +37,11 @@
   padding: modular-scale(-2) 0 modular-scale(2) 0;
 }
 
+.playlist-container {
+  @include background(linear-gradient($base-background-color, hsla(0, 100%, 100%, 0)));
+  padding: modular-scale(-2) 0 modular-scale(2) 0;
+}
+
 .player-container {
   margin: modular-scale(0) 0 modular-scale(1) 0;
 }
