@@ -12,6 +12,16 @@ module Api
         end
       end
 
+      def update
+        track = Track.find(params[:id])
+
+        if track.update(track_params)
+          render status: :ok
+        else
+          render status: :bad_request
+        end
+      end
+
       private
 
       def track_params
@@ -23,7 +33,8 @@ module Api
             :provider_track_id,
             :duration,
             :artist,
-            :image_url
+            :image_url,
+            :played
           )
       end
     end

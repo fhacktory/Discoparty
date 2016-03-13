@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resource :search, only: :show
       resources :playlists, only: :show do
-        resources :tracks, only: :create do
+        resources :tracks, only: [:create, :update] do
           resource :loves, only: [:create, :destroy]
           resource :hates, only: [:create, :destroy]
         end
