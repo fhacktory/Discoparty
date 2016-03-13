@@ -3,6 +3,10 @@ if $('body.playlists').length
   $(document).ready ->
     playlist_id = $('#searchbox').data 'playlistId'
 
+    $('#share').on 'click', ->
+      $('#code').addClass 'shown'
+      false
+      
     $(document).on 'click', '.like-vote-container, .dislike-vote-container', ->
       $this = $(@)
       $this.removeClass('pulse animated')

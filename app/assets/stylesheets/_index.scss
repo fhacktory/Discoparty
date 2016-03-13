@@ -11,8 +11,8 @@
 @media(max-width: 600px) {
   .main-container {
     padding: $small-spacing;
+  }
 }
-
 .submit-button {
   margin-top: modular-scale(0);
 }
@@ -75,8 +75,7 @@
         width: 200px;
       }
     }
-  }
-
+    
   .submit-button {
     border-radius: 0;
     border-bottom-right-radius: $base-border-radius;

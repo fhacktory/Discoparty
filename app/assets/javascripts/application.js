@@ -27,54 +27,59 @@ function onYouTubeIframeAPIReady() {
   ytCanPlay = true;
 }
 
-var playButton = {
-    el: document.querySelector(".js-button"),
+if (jQuery('body.playlist').length)
+{
 
-    iconEls: {
-        playing: document.querySelector("#pause-icon"),
-        paused:  document.querySelector("#play-icon")
-    },
+  var playButton = {
+      el: document.querySelector(".js-button"),
 
-    nextState: {
-        playing: "paused",
-        paused:  "playing"
-    },
+      iconEls: {
+          playing: document.querySelector("#pause-icon"),
+          paused:  document.querySelector("#play-icon")
+      },
 
-    animationDuration: 350,
+      nextState: {
+          playing: "paused",
+          paused:  "playing"
+      },
 
-    init: function () {
-        this.setInitialState();
-        this.replaceUseEl();
-        this.el.addEventListener("click", this.toggle.bind(this));
-    },
+      animationDuration: 350,
 
-    setInitialState: function () {
-      var initialIconRef = this.el.querySelector("use").getAttribute("xlink:href");
-      this.state = this.el.querySelector(initialIconRef).getAttribute("data-state");
-    },
+      init: function () {
+          this.setInitialState();
+          this.replaceUseEl();
+          this.el.addEventListener("click", this.toggle.bind(this));
+      },
 
-    replaceUseEl: function () {
-        d3.select(this.el.querySelector("use")).remove();
-        d3.select(this.el.querySelector("svg")).append("path")
-            .attr("class", "js-icon")
-            .attr("d", this.stateIconPath());
-    },
+      setInitialState: function () {
+        var initialIconRef = this.el.querySelector("use").getAttribute("xlink:href");
+        this.state = this.el.querySelector(initialIconRef).getAttribute("data-state");
+      },
 
-    toggle: function () {
-        this.goToNextState();
+      replaceUseEl: function () {
+          d3.select(this.el.querySelector("use")).remove();
+          d3.select(this.el.querySelector("svg")).append("path")
+              .attr("class", "js-icon")
+              .attr("d", this.stateIconPath());
+      },
 
-        d3.select(this.el.querySelector(".js-icon")).transition()
-            .duration(this.animationDuration)
-            .attr("d", this.stateIconPath());
-    },
+      toggle: function () {
+          this.goToNextState();
 
-    goToNextState: function () {
-        this.state = this.nextState[this.state];
-    },
+          d3.select(this.el.querySelector(".js-icon")).transition()
+              .duration(this.animationDuration)
+              .attr("d", this.stateIconPath());
+      },
 
-    stateIconPath: function () {
-        return this.iconEls[this.state].getAttribute("d");
-    }
-};
+      goToNextState: function () {
+          this.state = this.nextState[this.state];
+      },
 
-playButton.init();
+      stateIconPath: function () {
+          return this.iconEls[this.state].getAttribute("d");
+      }
+  };
+
+  playButton.init();
+  
+}
