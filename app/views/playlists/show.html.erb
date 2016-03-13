@@ -1,11 +1,11 @@
 <div class="top-bar">
-  <%= image_tag("logo.png", :class => "logo-icon")%>
+  <%= image_tag("logo.png", :class => "logo-icon") %>
   <h5><%= @playlist.name %></h5>
 </div>
 
 <div id="code">
   <%= raw @qr.as_html %>
-  <span>/<%= @playlist.id %></span>
+  <span><%= @playlist.id %></span>
 </div>
 
 <div class="inner-wrapper">

@@ -1,0 +1,76 @@
+.like-vote-container {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 1.5em;
+
+  &::before {
+    content: "\f08a";
+  }
+
+  &.voted {
+    font-family: 'FontAwesome';
+    color: $orange;
+
+    &::before {
+      content: "\f004";
+    }
+  }
+}
+
+.dislike-vote-container {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 1.5em;
+
+  &::before {
+    content: "\f088";
+  }
+
+
+  &.voted {
+    font-family: 'FontAwesome';
+    color: $orange;
+
+    &::before {
+      content: "\f165";
+    }
+  }
+}
+
+
+.fa-heart-o,
+.fa-thumbs-o-down {
+  transition: $base-duration $base-timing;
+
+  &:hover {
+    color: $orange;
+  }
+
+  &:active {
+    display: none;
+  }
+}
+
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.10, 1.10, 1.10);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+}
+
+.animated {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}

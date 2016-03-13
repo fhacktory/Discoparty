@@ -5,11 +5,13 @@ if $('body.playlists').length
 
     $(document).on 'click', '.like-vote-container, .dislike-vote-container', ->
       $this = $(@)
+      $this.removeClass('pulse animated')
       meth = if $this.hasClass('voted') then 'DELETE' else 'POST'
       $.ajax
         url: $this.data('url')
         method: meth
         success: ->
+          $this.addClass('pulse animated')
           $this.toggleClass('voted')
       false
 
