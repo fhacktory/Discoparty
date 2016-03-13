@@ -62,6 +62,10 @@
   margin-bottom: modular-scale(1);
   position: relative;
 
+  img {
+    width: 70px;
+  }
+
   &::after {
     background-color: $orange;
     content:"";

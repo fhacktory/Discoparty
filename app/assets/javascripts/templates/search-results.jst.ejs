@@ -1,0 +1,21 @@
+<ul>
+  <% tracks.forEach(function(track) { %>
+    <li class="search-result" data-title="<%= track.title %>"
+        data-provider="<%= track.provider %>"
+        data-provider_track_id="<%= track.provider_track_id %>"
+        data-duration="<%= track.duration %>"
+        data-artist="<%= track.artist %>"
+        data-image_url="<%= track.image_url %>">
+
+      <div class="image">
+        <img src="<%= track.image_url %>">
+      </div>
+
+      <div class="informations">
+        <span class="title"><%= track.title %></span>
+        <span class="artist"><%= track.artist %></span>
+        <span class="provider"><%= track.provider %></span>
+      </div>
+    </li>
+  <% }) %>
+</ul>

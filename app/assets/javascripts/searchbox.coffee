@@ -1,33 +1,32 @@
-$ = window.jQuery
 if $('body.playlists').length
   $(document).ready ->
-    $(document).on 'click', '.search_results', ->
+    $(document).on 'click', '.search-result', ->
       playlist_id = $('#searchbox').data('playlistId')
       $.ajax
         url: "/api/v1/playlists/#{playlist_id}/tracks"
         method: 'POST'
         data: { track: $(@).data() }
         success: ->
-          window.refresh()
+          $('.search-results-container').html('');
 
     $(document).on 'click', ->
-      $('#search_results').remove()
+      $('.search-results-container').html('');
 
     ajax_request = null
 
     nextItem = (cur) ->
-      $('.search_results').removeClass('hover').eq(cur).addClass 'hover'
-      if $('.search_results').eq(cur).position()?
-        h = $('.search_results').eq(0).height()
-        if ($('.search_results').eq(cur).position().top + h) > $('#search_results').height()
-          document.querySelector('#search_results').scrollTop += h * 3
-        if $('.search_results').eq(cur).position().top < 0
-          document.querySelector('#search_results').scrollTop -= h * 3
+      $('.search-result').removeClass('hover').eq(cur).addClass('hover')
+      if $('.search-result').eq(cur).position()?
+        h = $('.search-result').eq(0).height()
+        if ($('.search-result').eq(cur).position().top + h) > $('.search-results-container').height()
+          document.querySelector('.search-results-container').scrollTop += h * 3
+        if $('.search-result').eq(cur).position().top < 0
+          document.querySelector('.search-results-container').scrollTop -= h * 3
 
     $('#searchbox').on 'keyup', (e) ->
       $this = $(@)
-      length = $('.search_results').length
-      cur = $('.search_results.hover').index()
+      length = $('.search-result').length
+      cur = $('.search-result.hover').index()
       if e.keyCode is 40
         cur++
         cur = length if cur >= length
@@ -37,7 +36,7 @@ if $('body.playlists').length
         cur = 0 if cur <= 0
         nextItem cur
       else if e.keyCode is 13
-        $('.search_results.hover').trigger 'click'
+        $('.search-result.hover').trigger 'click'
       else
         if $this.val().length >= 3
           $this.addClass 'loading'
@@ -46,36 +45,10 @@ if $('body.playlists').length
           ajax_request = $.ajax
             url : '/api/v1/search'
             method: 'GET'
-            data :
+            data:
               q: encodeURIComponent $(@).val()
             datatype: 'json'
             success: (json) ->
-              html = ''
-              for i in json
-                if i.artist?
-                  concat = "#{i.artist}<br />#{i.title}"
-                else
-                  concat = "#{i.title}"
-                html += """
-                <a class="search_results" href="#"
-                  data-title="#{i.title}"
-                  data-provider="#{i.provider}"
-                  data-provider_track_id="#{i.provider_track_id}"
-                  data-duration="#{i.duration}"
-                  data-artist="#{i.artist}"
-                  data-image_url="#{i.image_url}"
-                  title="#{i.artist} - #{i.title}"
-                >
-                  <img src="#{i.image_url}" class="cover" />
-                  <span>#{concat}</span>
-                </a>
-                """
-              $("body").append '<div id="search_results" />'
-              $('#search_results').css(
-                top: $this.offset().top + $this.outerHeight()
-                left: $this.offset().left
-                width: $this.outerWidth()
-                'max-width': $this.outerWidth()
-              ).html html
-              document.querySelector('#search_results').scrollTop = 0
+              html = JST['templates/search-results']({ tracks: json });
+              $('.search-results-container').html(html);
               $this.removeClass 'loading'
