@@ -60,9 +60,7 @@ if $('body.playlists').length
     if $this.hasClass 'playing'
       $ww.html ''
       $this.removeClass 'playing'
-      $('.playlist-container').removeClass 'playing'
     else
       window.next()
       $this.addClass 'playing'
-      $('.playlist-container').addClass 'playing'
     false

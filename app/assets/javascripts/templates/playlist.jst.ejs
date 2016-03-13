@@ -1,5 +1,5 @@
 <% tracks.forEach(function(track) { %>
-  <div class="track-container" data-provider="<%= track.provider %>" data-track="<%= track.provider_track_id %>" data-duration="<%= track.duration %>" data-id="<%= track.id %>">
+  <div class="track-container <%= track.playing ? 'playing' : '' %>" data-provider="<%= track.provider %>" data-track="<%= track.provider_track_id %>" data-duration="<%= track.duration %>" data-id="<%= track.id %>">
     <div class="default-song-icon-container"><img src="<%= track.image_url %>" /></div>
     <div class="track-info-container">
       <h5><%= track.artist %></h5>
