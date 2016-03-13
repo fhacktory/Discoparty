@@ -58,3 +58,4 @@ if $('body.playlists').length
       window.next()
       $this.addClass 'playing'
       $('.playlist-container').addClass 'playing'
+    false

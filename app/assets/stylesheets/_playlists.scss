@@ -30,13 +30,12 @@
   display: block;
   height: 60px;
   margin: 0 auto;
-  position: relative;
   width: 60px;
 
-  .play-icon {
-    position: absolute;
-    top: 15px;
-    left: 18px;
+  .js-button {
+    path {
+      fill: $white;
+    }
   }
 }
 
