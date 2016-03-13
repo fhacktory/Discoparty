@@ -12,6 +12,10 @@ if $('body.playlists').length
     $(document).on 'click', ->
       $('.search-results-container').html('');
 
+    $(document).on 'mouseenter', '.search-result', ->
+      $('.search-result').removeClass('hover')
+      $(this).addClass('hover')
+
     ajax_request = null
 
     nextItem = (cur) ->
