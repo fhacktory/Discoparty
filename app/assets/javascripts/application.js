@@ -27,7 +27,7 @@ function onYouTubeIframeAPIReady() {
   ytCanPlay = true;
 }
 
-if (jQuery('body.playlist').length)
+if (jQuery('body.playlists').length)
 {
 
   var playButton = {
@@ -81,5 +81,5 @@ if (jQuery('body.playlist').length)
   };
 
   playButton.init();
-  
+
 }
