@@ -25,6 +25,6 @@ class PlaylistSerializer < ActiveModel::Serializer
   private
 
   def image_for(track)
-    track.image_url.present? ? track.image_url : image_path('default-song-icon-2x.png')
+    track.image_url.present? ? track.image_url : image_path('default-song-icon-2x.jpg')
   end
 end
