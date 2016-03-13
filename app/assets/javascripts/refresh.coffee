@@ -3,6 +3,19 @@ $ = window.jQuery
 $(document).ready ->
   playlist_id = $('#searchbox').data 'playlistId'
 
+  $(document).on 'click', '.like-vote-container, .dislike-vote-container', ->
+    $this = $(@)
+    meth = if $this.data('action') is 'undefined' then 'PUT' else 'DELETE'
+    $.ajax
+      url: $this.data('url')
+      method: meth
+      success: ->
+        if meth is 'PUT'
+          $this.addClass 'voted'
+        else
+          $this.removeClass 'voted'
+    false
+
   refresh = ->
     $.ajax
       url: "/api/v1/playlists/#{playlist_id}"
@@ -39,7 +52,8 @@ $(document).ready ->
             </div>
             """
         $('.playlist-container').html html
-
+        $('.like-vote-container, .dislike-vote-container').each ->
+          $(@).addClass('voted') if $this.data('action') isnt 'undefined'
   refresh()
 
   setInterval ->
