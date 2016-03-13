@@ -1,4 +1,4 @@
-<div class="main-wrapper">
+<div class="main-container">
   <div class="logo-container">
     <%= image_tag("logo-4x.png", :class => "logo")%>
   </div>
@@ -6,13 +6,12 @@
     <h3>Welcome on Disco Party, a collaborative playlist tool</h3>
     <h6>Enter a playlist name, and let's get the party started.</h6>
   </div>
-    <%= simple_form_for(@playlist) do |f| %>
-      <div class="input-container">
-        <%= f.input :name, placeholder: 'Playlist name', label: false, input_html: { class: 'playlist-name-field' } %>
-        <%= f.submit "Let's dance!", :class => 'submit-button' %>
-      </div>
-    <% end %>
-  </div>
+  <%= simple_form_for(@playlist) do |f| %>
+    <div class="input-container">
+      <%= f.input :name, placeholder: 'Playlist name', label: false, input_html: { class: 'playlist-name-field' } %>
+      <%= f.submit "Let's dance!", :class => 'submit-button' %>
+    </div>
+  <% end %>
 </div>
 
 <div id="widget_wrapper"></div>
