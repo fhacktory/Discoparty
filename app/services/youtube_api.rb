@@ -7,7 +7,7 @@ class YoutubeApi
         title: track['snippet']['title'],
         provider: 'youtube',
         provider_track_id: track['id']['videoId'],
-        duration: 'n/a',
+        duration: nil,
         artist: track['channelTitle'],
         image_url: track['snippet']['thumbnails']['default']['url']
       }
