@@ -34,7 +34,8 @@ module Api
             :duration,
             :artist,
             :image_url,
-            :played
+            :played,
+            :playing
           )
       end
     end
