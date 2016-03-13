@@ -52,6 +52,8 @@ $('.player-container .player').on 'click', ->
   if $this.hasClass 'playing'
     $ww.html ''
     $this.removeClass 'playing'
+    $('.playlist-container').removeClass 'playing'
   else
     next()
     $this.addClass 'playing'
+    $('.playlist-container').addClass 'playing'
