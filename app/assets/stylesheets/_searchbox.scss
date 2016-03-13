@@ -29,7 +29,7 @@
       height: 48px;
     }
 
-    &:hover {
+    &:hover, &.hover {
       background-color: lighten($orange, 40);
     }
   }
