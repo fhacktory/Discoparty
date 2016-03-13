@@ -1,6 +1,4 @@
 class PlaylistSerializer < ActiveModel::Serializer
-  include ActionView::Helpers::AssetUrlHelper
-
   attributes :name, :played_at, :created_at, :updated_at, :tracks
 
   def tracks
@@ -25,6 +23,10 @@ class PlaylistSerializer < ActiveModel::Serializer
   private
 
   def image_for(track)
-    track.image_url.present? ? track.image_url : image_path('default-song-icon-2x.jpg')
+    if track.image_url.present?
+      track.image_url
+    else
+      ActionController::Base.helpers.asset_path('default-song-icon-2x.jpg')
+    end
   end
 end
