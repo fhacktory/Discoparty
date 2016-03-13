@@ -4,7 +4,7 @@ class PlaylistSerializer < ActiveModel::Serializer
   def tracks
     object.tracks.not_played.map do |track|
       {
-        id: track.id
+        id: track.id,
         title: track.title,
         provider: track.provider,
         provider_track_id: track.provider_track_id,
