@@ -1,59 +1,59 @@
 $ = window.jQuery
+if $('body.playlists').length
+  iframeTpls =
+    deezer: 'https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=007FEB&layout=dark&size=medium&type=tracks&id=%1&app_id=1'
+    soundcloud: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/%1&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true'
 
-iframeTpls =
-  deezer: 'https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=007FEB&layout=dark&size=medium&type=tracks&id=%1&app_id=1'
-  soundcloud: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/%1&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true'
+  current = 0
 
-current = 0
+  $ww = $ '#widget_wrapper'
 
-$ww = $ '#widget_wrapper'
+  first = true
 
-first = true
-
-window.next = =>
-  if !first
-    playlist_id = $('#searchbox').data('playlistId')
-    $.ajax
-      url: "/api/v1/playlists/#{playlist_id}/tracks/" + $('.playlist-container .track-container').eq(0).data('id')
-      method: 'PUT'
-      data:
-        track:
-          played: true
-    $('.playlist-container .track-container').eq(0).remove()
-  else
-    first = false
-  if $('.playlist-container .track-container').length
-    track = $('.playlist-container .track-container').eq(0).addClass('playing').data()
-    $ww.html '<div id="widget_' + track.provider + '"></div>'
-    if track.provider is 'youtube'
-      player = new YT.Player 'widget_youtube',
-        height: '390'
-        width: '640'
-        videoId: track.track
-        events:
-          'onReady': onPlayerReady
-          'onStateChange': onPlayerStateChange
+  window.next = =>
+    if !first
+      playlist_id = $('#searchbox').data('playlistId')
+      $.ajax
+        url: "/api/v1/playlists/#{playlist_id}/tracks/" + $('.playlist-container .track-container').eq(0).data('id')
+        method: 'PUT'
+        data:
+          track:
+            played: true
+      $('.playlist-container .track-container').eq(0).remove()
     else
-      $ww.html '<iframe src="' + iframeTpls[track.provider].replace('%1', track.track) + '"></iframe>'
-      setTimeout ->
-        window.next()
-      , track.duration
-    current++
+      first = false
+    if $('.playlist-container .track-container').length
+      track = $('.playlist-container .track-container').eq(0).addClass('playing').data()
+      $ww.html '<div id="widget_' + track.provider + '"></div>'
+      if track.provider is 'youtube'
+        player = new YT.Player 'widget_youtube',
+          height: '390'
+          width: '640'
+          videoId: track.track
+          events:
+            'onReady': onPlayerReady
+            'onStateChange': onPlayerStateChange
+      else
+        $ww.html '<iframe src="' + iframeTpls[track.provider].replace('%1', track.track) + '"></iframe>'
+        setTimeout ->
+          window.next()
+        , track.duration
+      current++
 
-onPlayerReady = (event) ->
-  event.target.playVideo()
+  onPlayerReady = (event) ->
+    event.target.playVideo()
 
-onPlayerStateChange = (event) ->
-  if event.data is YT.PlayerState.ENDED
-    window.next()
+  onPlayerStateChange = (event) ->
+    if event.data is YT.PlayerState.ENDED
+      window.next()
 
-$('.player-container .player').on 'click', ->
-  $this = $(@)
-  if $this.hasClass 'playing'
-    $ww.html ''
-    $this.removeClass 'playing'
-    $('.playlist-container').removeClass 'playing'
-  else
-    window.next()
-    $this.addClass 'playing'
-    $('.playlist-container').addClass 'playing'
+  $('.player-container .player').on 'click', ->
+    $this = $(@)
+    if $this.hasClass 'playing'
+      $ww.html ''
+      $this.removeClass 'playing'
+      $('.playlist-container').removeClass 'playing'
+    else
+      window.next()
+      $this.addClass 'playing'
+      $('.playlist-container').addClass 'playing'

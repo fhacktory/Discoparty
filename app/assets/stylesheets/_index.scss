@@ -14,11 +14,32 @@
 
 .logo-container {
   margin-top: modular-scale(2);
-}
-
-.logo {
+  position: relative;
   width: 200px;
   height: 200px;
+
+  .logo {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -100px;
+
+    &.logo-noshadow {
+      width: 150px;
+      height: 150px;
+      margin-top: -75px;
+      margin-left: -75px;
+    }
+
+    &.logo-shadow {
+      opacity: 0;
+      z-index: 2;
+    }
+  }
+
 }
 
 .text-container {
