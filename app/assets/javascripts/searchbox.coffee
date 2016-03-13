@@ -8,7 +8,7 @@ $(document).ready ->
       method: 'POST'
       data: { track: $(@).data() }
       success: ->
-        refresh()
+        window.refresh()
 
   $(document).on 'click', ->
     $('#search_results').remove()

@@ -10,7 +10,7 @@ $ww = $ '#widget_wrapper'
 
 first = true
 
-next = =>
+window.next = =>
   if !first
     playlist_id = $('#searchbox').data('playlistId')
     $.ajax
@@ -36,7 +36,7 @@ next = =>
     else
       $ww.html '<iframe src="' + iframeTpls[track.provider].replace('%1', track.track) + '"></iframe>'
       setTimeout ->
-        next()
+        window.next()
       , track.duration
     current++
 
@@ -45,7 +45,7 @@ onPlayerReady = (event) ->
 
 onPlayerStateChange = (event) ->
   if event.data is YT.PlayerState.ENDED
-    next()
+    window.next()
 
 $('.player-container .player').on 'click', ->
   $this = $(@)
@@ -54,6 +54,6 @@ $('.player-container .player').on 'click', ->
     $this.removeClass 'playing'
     $('.playlist-container').removeClass 'playing'
   else
-    next()
+    window.next()
     $this.addClass 'playing'
     $('.playlist-container').addClass 'playing'

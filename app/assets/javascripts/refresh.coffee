@@ -16,7 +16,7 @@ $(document).ready ->
           $this.removeClass 'voted'
     false
 
-  refresh = ->
+  window.refresh = ->
     $.ajax
       url: "/api/v1/playlists/#{playlist_id}"
       method: "GET"
@@ -53,9 +53,9 @@ $(document).ready ->
             """
         $('.playlist-container').html html
         $('.like-vote-container, .dislike-vote-container').each ->
-          $(@).addClass('voted') if $this.data('action') isnt 'undefined'
-  refresh()
+          $(@).addClass('voted') if $(@).data('action') isnt 'undefined'
+  window.refresh()
 
   setInterval ->
-    refresh()
+    window.refresh()
   , 3000
