@@ -19,6 +19,7 @@ if $('body.playlists').length
         data:
           track:
             played: true
+            playing: false
       $('.playlist-container .track-container').eq(0).fadeIn ->
         $(@).remove()
     else
