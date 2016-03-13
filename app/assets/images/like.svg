@@ -1,7 +1,18 @@
-<svg width="30px" height="25px" viewBox="0 0 30 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
-    <title>like-icon</title>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M14.9986317,5.10102392 L11.9479079,2.05030011 C9.21457473,-0.683033054 4.78173522,-0.683717712 2.04806518,2.04995233 C-0.680042392,4.7780599 -0.685449152,9.21593293 2.04841297,11.9497951 L12.294081,22.195463 L14.6442593,24.8097213 L27.4344266,12.0195539 C30.1242172,9.32976336 30.1242178,4.96253002 27.4305905,2.2689027 L27.2855829,2.12389518 C24.5930806,-0.56860717 20.2904048,-0.508314434 17.6778002,2.26107547 L14.9986317,5.10102392 Z" id="Combined-Shape" stroke="#FF4927"></path>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="50px" height="45px" viewBox="0 0 50 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feMorphology radius="1" in="SourceAlpha" operator="dilate" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.7 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" filter="url(#filter-1)">
+        <path d="M25.2780725,15.1960615 L22.1705104,12.0884994 C19.3862523,9.3042413 14.8708241,9.30354389 12.0862229,12.0881452 C9.30728768,14.8670803 9.30178019,19.3876358 12.0865771,22.1724327 L22.523133,32.6089886 L24.9170977,35.2719533 L37.9455598,22.2434913 C40.6854641,19.503587 40.6854646,15.0549873 37.9416521,12.3111748 L37.7939429,12.1634656 C35.0512764,9.42079906 30.668437,9.48221512 28.0071568,12.3032018 L25.2780725,15.1960615 Z" id="Combined-Shape" stroke="#FFFFFF"></path>
     </g>
 </svg>

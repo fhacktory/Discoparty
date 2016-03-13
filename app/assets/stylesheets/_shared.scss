@@ -1,4 +1,3 @@
-html,
 body {
   height: 100%;
   background-color: $base-background-color;
@@ -6,4 +5,5 @@ body {
 
 .outer-container {
   height: 100%;
+  background-color: $base-background-color;
 }

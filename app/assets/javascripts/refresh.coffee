@@ -20,7 +20,6 @@ if $('body.playlists').length
         success: (json) ->
           html = JST['templates/playlist']({ tracks: json.tracks })
           $('.playlist-container').html(html)
-
     window.refresh()
 
     setInterval ->
