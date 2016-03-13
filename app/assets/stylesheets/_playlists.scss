@@ -39,6 +39,13 @@
   }
 }
 
+@media(max-width: 600px) {
+  .player {
+    display: none;
+  }
+}
+
+
 .search-bar-container {
   position: relative;
 
