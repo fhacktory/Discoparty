@@ -12,7 +12,7 @@ module Api
       end
 
       def destroy
-        love = @track.love_for(current_user)
+        love = @track.love_for(current_user).first
         if love.destroy
           head :ok
         else

@@ -12,7 +12,7 @@ module Api
       end
 
       def destroy
-        hate = @track.hate_for(current_user)
+        hate = @track.hate_for(current_user).first
         if hate.destroy
           head :ok
         else

@@ -94,6 +94,19 @@
   margin-left: auto;
 }
 
+.like-vote-container,
+.dislike-vote-container {
+  cursor: pointer;
+}
+
 .like-vote-container {
   margin-right: 15px;
+}
+
+.like-vote-container.voted path {
+  fill: rgb(255, 73, 39);
+}
+
+.dislike-vote-container.voted path {
+  fill: #fff;
 }

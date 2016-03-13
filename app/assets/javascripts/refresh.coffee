@@ -5,15 +5,12 @@ if $('body.playlists').length
 
     $(document).on 'click', '.like-vote-container, .dislike-vote-container', ->
       $this = $(@)
-      meth = if $this.data('action') is 'undefined' then 'PUT' else 'DELETE'
+      meth = if $this.hasClass('voted') then 'DELETE' else 'POST'
       $.ajax
         url: $this.data('url')
         method: meth
         success: ->
-          if meth is 'PUT'
-            $this.addClass 'voted'
-          else
-            $this.removeClass 'voted'
+          $this.toggleClass('voted')
       false
 
     window.refresh = ->

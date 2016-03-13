@@ -6,7 +6,7 @@
       <p><%= track.title %></p>
     </div>
     <div class="vote-container">
-      <div class="like-vote-container" data-action="#{<%= track.love %>" data-url="<%= track.love_url %>">
+      <div class="like-vote-container <%= track.loved ? 'voted' : '' %>" data-url="<%= track.love_url %>">
         <svg width="30px" height="25px" viewBox="0 0 30 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <title>like-icon</title>
           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -14,7 +14,7 @@
           </g>
         </svg>
       </div>
-      <div class="dislike-vote-container" data-action="<%= track.hate %>" data-url="<%= track.hate_url %>">
+      <div class="dislike-vote-container <%= track.hated ? 'voted' : '' %>" data-url="<%= track.hate_url %>">
         <svg width="31px" height="25px" viewBox="0 0 31 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <title>dislike</title>
           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
