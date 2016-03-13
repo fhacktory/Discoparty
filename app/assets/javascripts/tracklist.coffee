@@ -6,24 +6,25 @@ iframeTpls =
 
 current = 0
 
-$ww = document.querySelector '#widget_wrapper'
+$ww = $ '#widget_wrapper'
 
 first = true
 
 next = =>
   if !first
+    playlist_id = $('#searchbox').data('playlistId')
     $.ajax
-      url: '/api/v1/playlist/#{playlist_id}/tracks/' + $('.playlist-container .track-container').eq(0)
-      method: 'POST'
+      url: "/api/v1/playlists/#{playlist_id}/tracks/" + $('.playlist-container .track-container').eq(0).data('id')
+      method: 'PUT'
       data:
-        tracks:
+        track:
           played: true
     $('.playlist-container .track-container').eq(0).remove()
   else
     first = false
   if $('.playlist-container .track-container').length
     track = $('.playlist-container .track-container').eq(0).addClass('playing').data()
-    $ww.innerHTML = '<div id="widget_' + track.provider + '"></div>'
+    $ww.html '<div id="widget_' + track.provider + '"></div>'
     if track.provider is 'youtube'
       player = new YT.Player 'widget_youtube',
         height: '390'
@@ -33,7 +34,7 @@ next = =>
           'onReady': onPlayerReady
           'onStateChange': onPlayerStateChange
     else
-      $ww.innerHTML = '<iframe src="' + iframeTpls[track.provider].replace('%1', track.track) + '"></iframe>'
+      $ww.html '<iframe src="' + iframeTpls[track.provider].replace('%1', track.track) + '"></iframe>'
       setTimeout ->
         next()
       , track.duration

@@ -7,6 +7,8 @@ $(document).ready ->
       url: "/api/v1/playlists/#{playlist_id}/tracks"
       method: 'POST'
       data: { track: $(@).data() }
+      success: ->
+        refresh()
 
   $(document).on 'click', ->
     $('#search_results').remove()

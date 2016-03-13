@@ -12,14 +12,14 @@ $(document).ready ->
         if json.tracks?
           for item in json.tracks
             html += """
-            <div class="track-container" data-provider="#{item.provider}" data-track="#{item.provider_track_id}" data-duration="#{item.duration}">
+            <div class="track-container" data-provider="#{item.provider}" data-track="#{item.provider_track_id}" data-duration="#{item.duration}" data-id="#{item.id}">
               <div class="default-song-icon-container"><img src="#{item.image_url}" /></div>
               <div class="track-info-container">
                 <h5>#{item.artist}</h5>
                 <p>#{item.title}</p>
               </div>
               <div class="vote-container">
-                <div class="like-vote-container" data-action="#{item.love}">
+                <div class="like-vote-container" data-action="#{item.love}" data-url="#{item.love_url}">
                   <svg width="30px" height="25px" viewBox="0 0 30 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>like-icon</title>
                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -27,7 +27,7 @@ $(document).ready ->
                     </g>
                   </svg>
                 </div>
-                <div class="dislike-vote-container" data-action="#{item.hate}">
+                <div class="dislike-vote-container" data-action="#{item.hate}" data-url="#{item.hate_url}">
                   <svg width="31px" height="25px" viewBox="0 0 31 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>dislike</title>
                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
