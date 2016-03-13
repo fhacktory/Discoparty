@@ -5,6 +5,7 @@ FactoryGirl.define do
     provider 'deezer'
     provider_track_id '1234'
     playlist
+    playing false
   end
 
   factory :playlist do
