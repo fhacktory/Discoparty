@@ -9,8 +9,10 @@ if $('body.playlists').length
         success: ->
           $('.search-results-container').html('');
 
+    $('.search-results-container').html('').hide()
+
     $(document).on 'click', ->
-      $('.search-results-container').html('');
+      $('.search-results-container').html('').hide()
 
     $(document).on 'mouseenter', '.search-result', ->
       $('.search-result').removeClass('hover')
@@ -43,7 +45,7 @@ if $('body.playlists').length
         $('.search-result.hover').trigger 'click'
       else
         if $this.val().length >= 3
-          $this.addClass 'loading'
+          $('.search-bar-container').addClass 'loading'
           if ajax_request?
             ajax_request.abort()
           ajax_request = $.ajax
@@ -54,5 +56,5 @@ if $('body.playlists').length
             datatype: 'json'
             success: (json) ->
               html = JST['templates/search-results']({ tracks: json });
-              $('.search-results-container').html(html);
-              $this.removeClass 'loading'
+              $('.search-results-container').show().html(html);
+              $('.search-bar-container').removeClass 'loading'

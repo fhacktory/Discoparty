@@ -27,6 +27,21 @@
 .playlist-container {
   @include background(linear-gradient($base-background-color, hsla(0, 100%, 100%, 0)));
   padding: modular-scale(-2) 0 modular-scale(2) 0;
+
+  &.playing .track-container:first-child {
+    position: relative;
+
+    &:before {
+      content: '';
+      background-image: image-url("audio.svg");
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      width: 27px;
+      height: 40px;
+      z-index: 2;
+    }
+  }
 }
 
 .player-container {

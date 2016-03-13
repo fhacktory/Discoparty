@@ -1,5 +1,23 @@
 #searchbox {
   margin-bottom: 2px;
+  position: relative;
+
+}
+
+.search-bar-container.loading {
+  &:after {
+    content: '';
+    background-image: image-url("grid.svg");
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .search-icon {
+    display: none;
+  }
 }
 
 .search-results-container {
@@ -58,4 +76,3 @@
     background-color: #efefef;
   }
 }
-
