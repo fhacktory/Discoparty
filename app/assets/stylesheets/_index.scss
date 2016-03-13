@@ -13,28 +13,43 @@
 }
 
 .logo-container {
-  margin-top: modular-scale(3);
+  margin-top: modular-scale(2);
 }
 
-span {
-  color: $orange;
+.logo {
+  width: 200px;
+  height: 200px;
+}
+
+.text-container {
+  h3 {
+    margin-bottom: modular-scale(-2);
+  }
+
+  h6 {
+    margin-bottom: modular-scale(1);
+  }
 }
 
 .input-container {
   display: flex;
   justify-content: center;
-  margin: 0 0 modular-scale(0) 0;
+  margin: modular-scale(0) 0 0 0;
   width: 100%;
 
   .playlist-name-field {
+    border-radius: 0;
+    border-bottom-left-radius: $base-border-radius;
+    border-top-left-radius: $base-border-radius;
+    margin-bottom: 0;
     width: 250px;
   }
-}
 
-.input {
-  margin-top: 0;
-}
-
-.submit-button-container {
-  margin-top: modular-scale(-1);
+  .submit-button {
+    border-radius: 0;
+    border-bottom-right-radius: $base-border-radius;
+    border-top-right-radius: $base-border-radius;
+    margin-top: 0;
+    max-height: 38px;
+  }
 }

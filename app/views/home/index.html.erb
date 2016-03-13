@@ -1,16 +1,16 @@
 <div class="main-wrapper">
   <div class="logo-container">
-    <img alt="logo" src="http://placehold.it/150x150">
+    <%= image_tag("logo-4x.png", :class => "logo")%>
   </div>
   <div class="text-container">
     <h3>Welcome on Disco Party, a collaborative playlist tool</h3>
-    <h6>Enter a <span>playlist name</span>, and let's get the party started.</h6>
+    <h6>Enter a playlist name, and let's get the party started.</h6>
   </div>
     <%= simple_form_for(@playlist) do |f| %>
       <div class="input-container">
         <%= f.input :name, placeholder: 'Playlist name', label: false, input_html: { class: 'playlist-name-field' } %>
+        <%= f.submit "Let's dance!", :class => 'submit-button' %>
       </div>
-      <%= f.submit "Let's dance!" %>
     <% end %>
   </div>
 </div>
