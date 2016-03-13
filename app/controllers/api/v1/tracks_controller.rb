@@ -8,7 +8,7 @@ module Api
         if track.save
           render json: track, status: :created
         else
-          render status: :bad_request
+          head :bad_request
         end
       end
 
@@ -16,9 +16,9 @@ module Api
         track = Track.find(params[:id])
 
         if track.update(track_params)
-          render head: :ok
+          head :ok
         else
-          render head: :bad_request
+          head :bad_request
         end
       end
 

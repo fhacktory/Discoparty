@@ -5,18 +5,18 @@ module Api
 
       def create
         if Vote.create(hate_params.merge(track: @track))
-          render status: :created
+          head :created
         else
-          render status: :bad_request
+          head :bad_request
         end
       end
 
       def destroy
         hate = @track.hate_for(current_user)
         if hate.destroy
-          render status: :ok
+          head :ok
         else
-          render status: :bad_request
+          head :bad_request
         end
       end
 
