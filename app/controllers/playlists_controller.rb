@@ -13,6 +13,8 @@ class PlaylistsController < ApplicationController
 
   def show
     @playlist = Playlist.find(params[:id])
+
+    @qr = RQRCode::QRCode.new( params[:id], :size => 1, :level => :l )
   end
 
   private
