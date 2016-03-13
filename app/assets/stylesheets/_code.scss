@@ -1,5 +1,5 @@
 #code {
-  background: $white;
+  background: rgba(255,255,255,.45);
   padding: 0 10px 5px;
   position: absolute;
   right: 15px;
@@ -8,6 +8,13 @@
   color: $purple;
   text-align: center;
   font-size: .7em;
+
+  span {
+    background: rgba(255,255,255,.6);
+    display: block;
+    border-radius: 10px;
+    color: $purple;
+  }
 
   table {
     border-width: 0;
@@ -24,7 +31,7 @@
       border-radius: 10px;
 
       &.black { background-color: $purple; }
-      &.white { background-color: $white; }
+      &.white { background-color: transparent; }
     }
   }
 }
