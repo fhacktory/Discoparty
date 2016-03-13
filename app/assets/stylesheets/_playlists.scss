@@ -24,6 +24,14 @@
   @include shift(3);
 }
 
+@media(max-width: 600px) {
+  .inner-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    float: none;
+  }
+}
+
 .playlist-container {
   @include background(linear-gradient($base-background-color, hsla(0, 100%, 100%, 0)));
   padding: modular-scale(-2) 0 modular-scale(2) 0;
@@ -46,6 +54,12 @@
 
 .player-container {
   margin: modular-scale(0) 0 modular-scale(1) 0;
+}
+
+@media(max-width: 600px) {
+  .playlist-container {
+    font-size: .9em;
+  }
 }
 
 .player {

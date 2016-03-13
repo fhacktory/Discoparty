@@ -28,6 +28,13 @@
   width: 100%;
 }
 
+@media(max-width: 600px) {
+  .search-results-container {
+    max-height: 300px;
+    font-size: .9em;
+  }
+}
+
 .search-result {
   @include outer-container;
 
