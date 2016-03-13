@@ -2,6 +2,7 @@
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: 1.5em;
+  user-select: none;
 
   &::before {
     content: "\f08a";
@@ -21,6 +22,7 @@
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: 1.5em;
+  user-select: none;
 
   &::before {
     content: "\f088";
