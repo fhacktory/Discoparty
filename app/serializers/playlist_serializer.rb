@@ -17,7 +17,7 @@ class PlaylistSerializer < ActiveModel::Serializer
         love_url: api_v1_playlist_track_loves_path(object, track),
         hate_url: api_v1_playlist_track_hates_path(object, track)
       }
-    end.sort_by { |track| track[:score] }
+    end.sort_by { |track| -track[:score] }
   end
 
   private
