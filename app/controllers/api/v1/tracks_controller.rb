@@ -16,9 +16,9 @@ module Api
         track = Track.find(params[:id])
 
         if track.update(track_params)
-          render status: :ok
+          render head: :ok
         else
-          render status: :bad_request
+          render head: :bad_request
         end
       end
 
