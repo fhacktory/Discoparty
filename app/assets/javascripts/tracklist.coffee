@@ -1,31 +1,4 @@
-list = [
-  {
-    artist: 'OK GO'
-    title: 'Needing/Getting'
-    provider: 'youtube'
-    track_id: 'MejbOFk7H6c'
-  }
-  {
-    artist: 'Daft punk'
-    title: 'Around the world'
-    provider: 'deezer'
-    track_id: '3138820'
-    duration: 30000
-  }
-  {
-    artist: 'Giorgio Moroder'
-    title: '74 Is The New 24'
-    provider: 'soundcloud'
-    track_id: '177337182'
-    duration: 20000
-  }
-  {
-    artist: 'OK GO'
-    title: 'Needing/Getting'
-    provider: 'youtube'
-    track_id: 'MejbOFk7H6c'
-  }
-]
+$ = window.jQuery
 
 iframeTpls =
   deezer: 'https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=007FEB&layout=dark&size=medium&type=tracks&id=%1&app_id=1'
@@ -34,24 +7,33 @@ iframeTpls =
 current = 0
 
 $ww = document.querySelector '#widget_wrapper'
-$wl = document.querySelector '#widget_legend'
+
+first = true
 
 next = =>
-  clearInterval startTimer
-  if list[current]?
-    track = list[current]
-    $wl.innerHTML = track.artist + ' - ' + track.title
+  if !first
+    $.ajax
+      url: '/api/v1/playlist/#{playlist_id}/tracks/' + $('.playlist-container .track-container').eq(0)
+      method: 'POST'
+      data:
+        tracks:
+          played: true
+    $('.playlist-container .track-container').eq(0).remove()
+  else
+    first = false
+  if $('.playlist-container .track-container').length
+    track = $('.playlist-container .track-container').eq(0).addClass('playing').data()
     $ww.innerHTML = '<div id="widget_' + track.provider + '"></div>'
     if track.provider is 'youtube'
       player = new YT.Player 'widget_youtube',
         height: '390'
         width: '640'
-        videoId: track.track_id
+        videoId: track.track
         events:
           'onReady': onPlayerReady
           'onStateChange': onPlayerStateChange
     else
-      $ww.innerHTML = '<iframe src="' + iframeTpls[track.provider].replace('%1', track.track_id) + '"></iframe>'
+      $ww.innerHTML = '<iframe src="' + iframeTpls[track.provider].replace('%1', track.track) + '"></iframe>'
       setTimeout ->
         next()
       , track.duration
@@ -64,7 +46,11 @@ onPlayerStateChange = (event) ->
   if event.data is YT.PlayerState.ENDED
     next()
 
-startTimer = setInterval ->
-  if ytCanPlay
+$('.player-container .player').on 'click', ->
+  $this = $(@)
+  if $this.hasClass 'playing'
+    $ww.html ''
+    $this.removeClass 'playing'
+  else
     next()
-, 500
+    $this.addClass 'playing'
