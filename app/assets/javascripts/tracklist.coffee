@@ -25,6 +25,12 @@ if $('body.playlists').length
       first = false
     if $('.playlist-container .track-container').length
       track = $('.playlist-container .track-container').eq(0).addClass('playing').data()
+      $.ajax
+        url: "/api/v1/playlists/#{playlist_id}/tracks/#{track.id}"
+        method: 'PUT'
+        data:
+          track:
+            playing: true
       $ww.html '<div id="widget_' + track.provider + '"></div>'
       if track.provider is 'youtube'
         player = new YT.Player 'widget_youtube',
