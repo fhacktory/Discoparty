@@ -9,10 +9,6 @@ class Track < ActiveRecord::Base
   validates :provider_track_id, presence: true
   validates :playlist, presence: true
 
-  def self.not_played
-    where(played: false)
-  end
-
   def score
     loves.count - hates.count
   end

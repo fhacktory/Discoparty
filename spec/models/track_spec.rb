@@ -11,16 +11,6 @@ describe Track do
   it { should validate_presence_of(:provider_track_id) }
   it { should validate_presence_of(:playlist) }
 
-  describe '.not_played' do
-    it 'returns only not played tracks' do
-      playlist = create(:playlist)
-      create(:track, played: false, playlist: playlist)
-      create(:track, played: true, playlist: playlist)
-
-      expect(Track.not_played.count).to eq(1)
-    end
-  end
-
   describe '#score' do
     it 'returns track score' do
       track = create(:track)
