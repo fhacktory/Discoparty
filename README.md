@@ -2,6 +2,8 @@
 
 DiscoParty is a social and collaborative playlist web application.
 
+Currently living at : http://discoparty.herokuapp.com
+
 It's perfect for the situation when your friend ask you to add some tracks on the audio background of the party. They now can do it by theirselves !
 
 Your friends can download an application for their smartphone and scan the code displayed on the playlist or go to the discoparty url adding `/playlists/#{playlist_id}`.
