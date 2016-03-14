@@ -4,7 +4,6 @@ class Track < ActiveRecord::Base
   has_many :hates, -> { where vote_type: 'hate' }, class_name: 'Vote'
 
   validates :title, presence: true
-  validates :artist, presence: true
   validates :provider, presence: true
   validates :provider_track_id, presence: true
   validates :playlist, presence: true

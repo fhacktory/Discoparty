@@ -6,7 +6,6 @@ describe Track do
   it { should have_many(:hates).class_name('Vote') }
 
   it { should validate_presence_of(:title) }
-  it { should validate_presence_of(:artist) }
   it { should validate_presence_of(:provider) }
   it { should validate_presence_of(:provider_track_id) }
   it { should validate_presence_of(:playlist) }
